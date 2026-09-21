@@ -1,0 +1,82 @@
+{
+  "name": "notoir",
+  "private": true,
+  "version": "0.0.0",
+  "main": "dist-electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "package": "npm run build && electron-builder"
+  },
+  "build": {
+    "appId": "com.notoir.app",
+    "productName": "Notoir",
+    "directories": {
+      "output": "release"
+    },
+    "icon": "src/assets/notoir.png",
+    "files": [
+      "dist",
+      "dist-electron"
+    ],
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "artifactName": "notoir-setup.exe"
+    },
+    "portable": {
+      "artifactName": "notoir.exe"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
+    "@types/d3": "^7.4.3",
+    "@types/pg": "^8.23.1",
+    "chokidar": "^5.0.0",
+    "d3": "^7.9.0",
+    "dotenv": "^18.0.1",
+    "electron-store": "^11.0.2",
+    "lucide-react": "^1.47.0",
+    "mongoose": "^9.10.1",
+    "openai": "^7.19.0",
+    "pg": "^8.23.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-markdown": "^10.1.0",
+    "react-syntax-highlighter": "^16.1.1",
+    "remark-gfm": "^4.0.1",
+    "uuid": "^14.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.6",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@types/uuid": "^10.0.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "electron": "^44.4.3",
+    "electron-builder": "^26.15.3",
+    "oxlint": "^1.81.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "vite-plugin-electron": "^1.1.2",
+    "vite-plugin-electron-renderer": "^1.0.0"
+  }
+}
